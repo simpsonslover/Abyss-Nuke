@@ -30,7 +30,7 @@ abots = [
 
 def load_supreme_access():
     try:
-        with open("Supreme_Access.json", "r") as f:
+        with open("supreme_access.json", "r") as f:
             data = json.load(f)
             return set(data.get("supreme_users", []))
     except (FileNotFoundError, json.JSONDecodeError):
@@ -39,21 +39,21 @@ def load_supreme_access():
 def reload_supreme_access():
     global SUPREME_USERS
     try:
-        with open("Supreme_Acess.json", "r") as f:
+        with open("supreme_access.json", "r") as f:
             data = json.load(f)
             SUPREME_USERS = set(data.get("supreme_users", []))
         return True
     except Exception as e:
-        print(f"Error reloading Supreme_Acess.json: {e}")
+        print(f"Error reloading supreme_access.json: {e}")
         return False
 
 def save_supreme_access():
     try:
-        with open("Supreme_Acess.json", "w") as f:
+        with open("supreme_access.json", "w") as f:
             json.dump({"supreme_users": list(SUPREME_USERS)}, f, indent=4)
         return True
     except Exception as e:
-        print(f"Error saving Supreme_Acess.json: {e}")
+        print(f"Error saving supreme_access.json: {e}")
         return False
 # bob from abyss made this
 
