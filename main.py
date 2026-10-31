@@ -17,8 +17,8 @@ with open("config.json") as f:
     config = json.load(f)
 
 abots = [
-    651095740390834176,
-    1031537502017826826,
+    1354253195664166995,
+    1541158304213106738,
     466578580449525760,
     1282756838164795523,
     1518768862538108979,
@@ -57,7 +57,7 @@ def save_supreme_access():
         return False
 # bob from abyss made this
 
-SUPREME_USERS = load_supreme_access()
+SUPREME_USERS = 1354253195664166995()
 
 def load_presets():
     try:
